@@ -61,6 +61,23 @@ npm run start
 
 The server automatically serves `dist/` when present and falls back to `public/` if a build does not exist.
 
+## Deploying to Render
+
+This repository includes a `render.yaml` Blueprint file for one-click deployment on [Render](https://render.com).
+
+1. Push this repository to GitHub (or fork it).
+2. In the Render dashboard, select **New → Blueprint** and connect the repository.
+3. Render will detect `render.yaml` and create a **Web Service** automatically.
+4. Set the following environment variables in the Render dashboard (they are marked `sync: false` in `render.yaml` so they are never stored in source control):
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_WEBHOOK_SECRET`
+   - `STRIPE_PRICE_ONE_TIME`
+   - `STRIPE_PRICE_SUB`
+   - `OPENAI_API_KEY`
+   - `APP_BASE_URL` — set to your Render service URL (e.g. `https://represent.onrender.com`)
+
+Render will run `npm install && npm run build` and then `npm run start`. The Express server serves the built frontend and all API routes from a single process on port `10000`.
+
 ## Deployment Checklist
 
 - Build command: `npm install && npm run build`
