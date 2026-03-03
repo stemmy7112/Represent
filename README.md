@@ -32,6 +32,8 @@ cp .env.example .env
 - `STRIPE_PRICE_ONE_TIME`
 - `STRIPE_PRICE_SUB`
 - `OPENAI_API_KEY`
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
 
 4. Start backend:
 
@@ -74,6 +76,8 @@ This repository includes a `render.yaml` Blueprint file for one-click deployment
    - `STRIPE_PRICE_ONE_TIME`
    - `STRIPE_PRICE_SUB`
    - `OPENAI_API_KEY`
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`
    - `APP_BASE_URL` — set to your Render service URL (e.g. `https://represent.onrender.com`)
 
 Render will run `npm install && npm run build` and then `npm run start`. The Express server serves the built frontend and all API routes from a single process on port `10000`.
@@ -83,16 +87,18 @@ Render will run `npm install && npm run build` and then `npm run start`. The Exp
 - Build command: `npm install && npm run build`
 - Start command: `npm run start`
 - Healthcheck path: `/api/health` (or `/health`)
-- Required env vars:
+ - Required env vars:
 	- `STRIPE_SECRET_KEY`
 	- `STRIPE_WEBHOOK_SECRET`
 	- `STRIPE_PRICE_ONE_TIME`
 	- `STRIPE_PRICE_SUB`
 	- `OPENAI_API_KEY`
-- Recommended env vars:
+	- `VITE_SUPABASE_URL`
+	- `VITE_SUPABASE_PUBLISHABLE_KEY`
+ - Recommended env vars:
 	- `APP_BASE_URL` (your deployed frontend origin)
 	- `PORT` (defaults to `10000`)
-- Optional frontend env var:
+ - Optional frontend env var:
 	- `VITE_API_BASE_URL` (use only if API is on a separate domain)
 
 ## Frontend/Backend Routing in Dev
