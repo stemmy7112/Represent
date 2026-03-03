@@ -26,6 +26,7 @@ dist-ssr
 # Environment variables / secrets — never commit these
 .env
 .env.*
+!.env.example
 Env.txt
 
 # Generated PDF files from server
