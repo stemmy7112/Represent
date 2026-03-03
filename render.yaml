@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: represent
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: APP_BASE_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_ONE_TIME
+        sync: false
+      - key: STRIPE_PRICE_SUB
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
